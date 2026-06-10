@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현장체험학습 학부모 보조인력 안전연수</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #fafaf9; color: #1c1917; }
+        .chart-container { position: relative; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; height: 230px; max-height: 230px; }
+        .toast-enter { opacity: 0; transform: translateY(1rem); }
+        .toast-enter-active { opacity: 1; transform: translateY(0); transition: opacity 300ms, transform 300ms; }
+        .toast-exit { opacity: 1; }
+        .toast-exit-active { opacity: 0; transition: opacity 300ms; }
+        .tab-active { background-color: #4f46e5; color: white; border-color: #4f46e5; }
+        .tab-inactive { background-color: white; color: #4b5563; border-color: #e5e7eb; }
+        .emerg-active-1 { background-color: #fde68a; border-color: #f59e0b; }
+        .emerg-active-2 { background-color: #fdba74; border-color: #ea580c; }
+        .emerg-active-3 { background-color: #fecdd3; border-color: #e11d48; }
+    </style>
+</head>
+<body class="antialiased pb-24">
+
+    <!-- Chosen Palette: Soft Warm Stone & Gentle Deep Indigo (bg-stone-50, text-stone-800, text-indigo-600, paired with emerald for positive interactions and amber/rose for alerts) -->
+    <!-- Application Structure Plan: The single-page dashboard is structured into four highly readable zones. First, the welcoming header. Second, the Core Principles cards. Third, an interactive checklist flow focusing on pure text readability without broken image tags. Fourth, the situational medical response system that integrates the infirmary details right where accidents are handled. This approach ensures high user engagement and practical recall on-site. -->
+    <!-- Visualization & Content Choices: Checklist progression is updated dynamically on a responsive Chart.js Doughnut canvas to reward active learning. Local guides are redesigned as colorful informational cards instead of image-dependent templates. All SVGs are bypassed using native modern layout systems and unicode emojis. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl">🏫</span>
+                <div>
+                    <h1 class="text-xl font-bold text-stone-800">현장체험학습 안전 길잡이</h1>
+                    <p class="text-xs text-stone-500">모당초등학교 학부모 보조인력 소통 대시보드</p>
+                </div>
+            </div>
+            <nav class="flex gap-2 text-sm font-medium">
+                <a href="#principles" class="px-3 py-2 text-stone-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-colors">행동약속</a>
+                <a href="#steps" class="px-3 py-2 text-stone-600 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-colors">단계별안내</a>
+                <a href="#emergency" class="px-3 py-2 text-stone-600 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors">안심대처법</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <section id="intro" class="bg-indigo-600 rounded-2xl p-8 text-white shadow-lg text-center sm:text-left flex flex-col sm:flex-row items-center gap-6">
+            <div class="text-5xl">❤️</div>
+            <div>
+                <h2 class="text-2xl font-bold mb-2">학부모님, 따뜻한 동행에 깊이 감사드립니다.</h2>
+                <p class="text-indigo-100 leading-relaxed text-sm sm:text-base">
+                    우리 아이들이 보다 넓은 세상에서 안전하고 건강하게 배움을 얻을 수 있도록 소중한 손길을 더해주셔서 참 고맙습니다. 본 대시보드는 체험학습 중 학부모님의 **소중한 역할**과 **상황별 안심 대처 요령**을 가볍고 편안하게 익히실 수 있도록 준비했습니다. 안전한 하루를 위해 각 항목을 가볍게 누르며 확인해 주세요.
+                </p>
+            </div>
+        </section>
+
+        <section id="principles" class="scroll-mt-24">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
+                    <span>📌</span> 1. 함께 지키는 3대 행동 약속
+                </h2>
+                <p class="text-stone-600 mt-2 text-sm sm:text-base">
+                    우리 아이들과 교사, 그리고 학부모님이 모두 안심하고 신뢰할 수 있는 하루를 만들기 위한 기본 마음가짐입니다. 상호 배려를 바탕으로 한 든든한 파트너가 되어 주세요.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center text-2xl mb-4">💬</div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">언제나 선생님과 상의해 주세요</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">위급한 응급 상황을 제외하고, 활동 중 생기는 소소한 변동 사항이나 개별 상황은 <strong>인솔 선생님과 먼저 편안하게 상의</strong>하신 후 조치해 주시길 부탁드립니다.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-4">🌱</div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">아이들의 든든한 울타리</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">인솔 선생님의 손길이 닿지 않는 곳을 따뜻하게 메워주세요. 학생들이 이동하거나 체험 활동을 할 때 안전 수칙을 즐겁게 지킬 수 있도록 곁에서 잘 다독여 주시기 바랍니다.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mb-4">✨</div>
+                    <h3 class="text-lg font-bold text-stone-800 mb-2">바른 경계와 존중의 마음</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">선생님과 아이들 모두에게 늘 정중하고 다정한 말투를 나누어 주세요. <strong>학생에게 반말을 사용하거나 불필요하게 손을 잡는 등 조심스러운 신체 접촉은 조금만 아껴 주시기</strong> 바랍니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="steps" class="scroll-mt-24 pt-8 border-t border-stone-200">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
+                    <span>🗺️</span> 2. 시간 흐름에 따른 다정한 안전 가이드
+                </h2>
+                <p class="text-stone-600 mt-2 text-sm sm:text-base">
+                    체험학습이 시작되는 버스 탑승부터 마지막 귀가 시간까지, 학부모님께서 눈여겨보셔야 할 체크리스트입니다. 실제 현장 주차장 정보와 의무실 가이드가 포함되어 있으니 가볍게 터치해 보세요!
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-2/3 flex flex-col">
+                    <div class="flex flex-wrap gap-2 mb-4" id="step-tabs">
+                        <button onclick="switchTab('phase1')" id="btn-phase1" class="tab-active px-4 py-2 rounded-lg font-medium border transition-colors flex items-center gap-2"><span>🚌</span> 1단계: 버스 타고 갈 때</button>
+                        <button onclick="switchTab('phase2')" id="btn-phase2" class="tab-inactive px-4 py-2 rounded-lg font-medium border transition-colors flex items-center gap-2"><span>🎒</span> 2단계: 현장에서 활동할 때</button>
+                        <button onclick="switchTab('phase3')" id="btn-phase3" class="tab-inactive px-4 py-2 rounded-lg font-medium border transition-colors flex items-center gap-2"><span>🏥</span> 3단계: 위험을 미리 살필 때</button>
+                    </div>
+
+                    <div class="bg-white rounded-xl shadow-sm border border-stone-200 p-0 overflow-hidden flex-grow">
+                        <div id="content-phase1" class="p-6 space-y-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-indigo-950 mb-1 border-b pb-2">안전하고 편안한 이동 및 하차 시간</h3>
+                                <p class="text-xs text-stone-500 mb-4 font-medium text-rose-600">⚠️ 하차 현장 주차장 구역이 매우 협소하오니 아래 하차 요령을 꼭 숙지해 주세요.</p>
+                            </div>
+                            
+                            <!-- 이미지 대신 직관적이고 가시성 좋은 핵심 가이드 박스 배치 -->
+                            <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 space-y-4">
+                                <h4 class="text-sm font-bold text-indigo-900 flex items-center gap-2">
+                                    <span>🚌</span> 현장 도착 시 꼭 지켜주셔야 할 하차 약속
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border border-stone-200 shadow-sm border-l-4 border-l-rose-500">
+                                        <span class="text-[10px] font-bold text-rose-500 uppercase tracking-wider block mb-1">안전 약속 1</span>
+                                        <h5 class="font-bold text-stone-800 text-xs mb-1">완전 정차 전 해제 금지</h5>
+                                        <p class="text-[11px] text-stone-600 leading-relaxed font-medium">차가 완전히 정찰할 때까지 안전벨트를 풀지 않도록 지도해 주세요.</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-stone-200 shadow-sm border-l-4 border-l-amber-500">
+                                        <span class="text-[10px] font-bold text-amber-500 uppercase tracking-wider block mb-1">안전 약속 2</span>
+                                        <h5 class="font-bold text-stone-800 text-xs mb-1">주차장 이동 정렬</h5>
+                                        <p class="text-[11px] text-stone-600 leading-relaxed font-medium">주차장이 매우 좁으니, 이동 시 줄을 잘 서고 선생님의 인솔을 잘 따라오도록 보조해 주세요.</p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded-lg border border-stone-200 shadow-sm border-l-4 border-l-indigo-600">
+                                        <span class="text-[10px] font-bold text-indigo-600 uppercase tracking-wider block mb-1">안전 약속 3</span>
+                                        <h5 class="font-bold text-stone-800 text-xs mb-1">보도블록 위 대기</h5>
+                                        <p class="text-[11px] text-stone-600 leading-relaxed font-medium">버스에서 내리면 바로 건물 앞 보도블록 위로 올라가도록 챙겨주세요.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">아이들이 모두 <strong>안전벨트</strong>를 맸는지 꼼꼼히 봐주시고, 이동 중에 자리에서 일어나 장난치지 않도록 다정하게 말려주세요.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">출발하기 전, 휴게소를 들렀을 때, 그리고 목적지에 도착했을 때 인솔 선생님과 함께 <strong>아이들 머릿수를 꼼꼼히 세어</strong> 주세요.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">버스에서 타고 내릴 때 주변에 차가 지나가지 않는지, 바닥이 미끄럽지 않은지 <strong>주변 안전을 먼저 살핀 후</strong> 아이들을 안내해 주세요.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">멀미를 하거나 갑자기 몸이 아프다고 말하는 아이가 있다면 망설이지 말고 <strong>즉시 인솔 선생님께 알릴 수 있도록</strong> 도와주세요.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="content-phase2" class="p-6 hidden space-y-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-indigo-950 mb-1 border-b pb-2">낙오 없이 모두가 즐거운 시간</h3>
+                                <p class="text-xs text-stone-500 mb-4">체험 활동 중 아이들의 작은 몸짓에도 눈을 떼지 않도록 함께 배려해 주세요.</p>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">이동할 때 대열의 맨 뒤나 양옆에서 지켜보시며 <strong>뒤처지거나 딴청을 부리는 아이가 없는지</strong> 든든하게 마크해 주세요.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">활동이 시작되거나 끝날 때마다 인솔 선생님과 소통하며 <strong>서로 교차로 인원을 확인</strong>해 주시면 더욱 빈틈없는 안전을 확보할 수 있습니다.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="content-phase3" class="p-6 hidden space-y-6">
+                            <div>
+                                <h3 class="text-xl font-bold text-indigo-950 mb-1 border-b pb-2">안전하고 정돈된 환경 도모 및 의무실 확인</h3>
+                                <p class="text-xs text-stone-500 mb-4">안전사고 예방과 보건 활동은 현장 체험학습에서 가장 중요합니다.</p>
+                            </div>
+
+                            <!-- 의무실 사진 대신 눈에 띄는 고대비 텍스트 디자인 카드 배치 -->
+                            <div class="bg-rose-50 p-5 rounded-xl border border-rose-100 space-y-4">
+                                <h4 class="text-sm font-bold text-rose-950 flex items-center gap-2">
+                                    <span>🏥</span> 알아두면 든든한 보건실(의무실) 위치 정보
+                                </h4>
+                                <div class="bg-white p-5 rounded-lg border border-rose-200 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+                                    <div class="space-y-1.5 text-center md:text-left">
+                                        <span class="inline-block px-2 py-0.5 bg-rose-100 text-rose-800 text-[10px] font-bold rounded">보건 위치 공지</span>
+                                        <h5 class="text-lg font-bold text-stone-900">
+                                            의무실은 <span class="text-rose-600 font-black underline decoration-2 decoration-rose-400">2층 식당 바로 맞은편</span>에 위치하고 있습니다.
+                                        </h5>
+                                        <p class="text-xs text-stone-600 leading-relaxed">
+                                            아이가 복통, 가벼운 찰과상 또는 안정이 필요한 상태라면 헤매지 마시고 즉시 맞은편 의무실로 동행해 안전 조치를 받도록 이끌어 주세요.
+                                        </p>
+                                    </div>
+                                    <span class="text-4xl bg-rose-100 p-3 rounded-full flex-shrink-0">🏥</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">차들이 다니는 길목, 공사장 주변, 또는 깊은 연못 같은 <strong>위험한 장소에는 아이들이 가까이 가지 않도록</strong> 따뜻하게 타이르고 제지해 주세요.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">아이들이 목이 마르지는 않은지 물을 마시도록 챙겨주시고, 너무 지치거나 다친 기색이 없는지 눈여겨봐 주세요.</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 hover:bg-stone-50 rounded-lg cursor-pointer border border-transparent hover:border-stone-200 transition-colors">
+                                    <input type="checkbox" class="task-checkbox mt-1 w-5 h-5 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500" onchange="updateProgress()">
+                                    <span class="text-stone-700">액티비티나 체험 기구 이용 시 헬멧이나 보호대 같은 <strong>안전 장비를 제대로 꼭 올바르게 맸는지</strong> 한번 더 다독이며 매만져 주세요.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/3 bg-white rounded-xl shadow-sm border border-stone-200 p-6 flex flex-col justify-center items-center">
+                    <h3 class="text-lg font-bold text-stone-800 mb-2 text-center">안전 마음가짐 달성도</h3>
+                    <p class="text-sm text-stone-500 mb-6 text-center">아이들을 지키는 열쇠, 하나씩 다독여 보아요.</p>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <span class="text-3xl font-black text-indigo-600" id="progress-percent">0</span><span class="text-xl font-bold text-stone-400">%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="emergency" class="scroll-mt-24 pt-8 border-t border-stone-200">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-rose-700 flex items-center gap-2">
+                    <span>🚨</span> 3. 마음을 가라앉히는 차분한 상황별 안심 대처법
+                </h2>
+                <p class="text-stone-600 mt-2 text-sm sm:text-base">
+                    갑작스러운 사고가 나더라도 너무 놀라지 마세요. 학부모님의 차분한 대처가 아이들을 가장 안심시킵니다. 아래의 상황 단계를 선택하셔서 어떻게 움직이면 좋을지 마인드 컨트롤을 부탁드립니다.
+                </p>
+            </div>
+
+            <div class="bg-stone-100 rounded-2xl p-2 sm:p-4 mb-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    <button onclick="setEmergencyLevel(1)" id="btn-em-1" class="bg-white border-2 border-stone-200 hover:border-amber-400 rounded-xl p-4 text-center transition-all flex flex-col items-center gap-2">
+                        <span class="text-3xl">🩹</span>
+                        <span class="font-bold text-stone-800">조금 다쳤을 때</span>
+                        <span class="text-xs text-stone-500">선생님과 현장 치료가 가능해요</span>
+                    </button>
+                    <button onclick="setEmergencyLevel(2)" id="btn-em-2" class="bg-white border-2 border-stone-200 hover:border-orange-500 rounded-xl p-4 text-center transition-all flex flex-col items-center gap-2">
+                        <span class="text-3xl">🏥</span>
+                        <span class="font-bold text-stone-800">병원에 가야 할 때</span>
+                        <span class="text-xs text-stone-500">전문의의 진찰이 필요해요</span>
+                    </button>
+                    <button onclick="setEmergencyLevel(3)" id="btn-em-3" class="bg-white border-2 border-stone-200 hover:border-rose-600 rounded-xl p-4 text-center transition-all flex flex-col items-center gap-2">
+                        <span class="text-3xl">🚑</span>
+                        <span class="font-bold text-stone-800">매우 위급할 때</span>
+                        <span class="text-xs text-stone-500">1분 1초가 소중한 순간이에요</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="emergency-display" class="bg-white rounded-xl shadow-md border-l-8 border-stone-300 p-6 min-h-[200px] flex items-center justify-center transition-all">
+                <div class="text-center text-stone-400 flex flex-col items-center gap-3">
+                    <span class="text-4xl">👆</span>
+                    <p>위의 상해 수준 버튼을 선택하시면<br>마음을 가볍게 만들어 줄 안심 가이드를 보실 수 있어요.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reminders" class="scroll-mt-24 pt-8 border-t border-stone-200">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 flex items-center gap-2">
+                    <span>🔑</span> 4. 꼭 기억해 주셨으면 하는 간곡한 부탁
+                </h2>
+                <p class="text-stone-600 mt-2 text-sm sm:text-base">
+                    안전하고 원활한 체험학습 진행을 위해 출발 전에 마지막으로 꼭 약속해 주실 소중한 카드입니다.
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-amber-50 rounded-2xl p-8 border border-amber-200 flex flex-col sm:flex-row items-center sm:items-start gap-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="text-5xl flex-shrink-0">🧡</div>
+                    <div>
+                        <h3 class="text-xl font-bold text-amber-950 mb-3 text-center sm:text-left">사랑과 신뢰를 위한 아름다운 동행</h3>
+                        <p class="text-stone-700 leading-relaxed text-sm sm:text-base">
+                            "이 정도는 내 마음대로 해도 괜찮겠지" 하는 생각으로 따로 움직이시는 것보다, 사소한 변동 사항이라도 <strong>인솔 선생님께 먼저 눈인사와 말 한마디로 가볍게 귀띔</strong>을 해 주신다면 정말 큰 힘이 됩니다. 현장 조력의 가장 든든한 날개는 '긴밀한 소통'임을 기억해 주세요.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toast" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-stone-800 text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium hidden z-50 transition-all duration-300">
+        알림 메시지
+    </div>
+
+    <script>
+        let progressChartInstance = null;
+        const totalTasks = 9;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initChart();
+        });
+
+        function initChart() {
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            progressChartInstance = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['확인 완료', '미확인 수칙'],
+                    datasets: [{
+                        data: [0, totalTasks],
+                        backgroundColor: ['#4f46e5', '#f5f5f4'],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { font: { family: "'Noto Sans KR', sans-serif" } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ' ' + context.label + ': ' + context.raw + '개';
+                                }
+                            }
+                        }
+                    },
+                    animation: { animateScale: true, animateRotate: true }
+                }
+            });
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) checkedCount++;
+            });
+
+            if (progressChartInstance) {
+                progressChartInstance.data.datasets[0].data = [checkedCount, totalTasks - checkedCount];
+                if(checkedCount === totalTasks) {
+                    progressChartInstance.data.datasets[0].backgroundColor = ['#10b981', '#f5f5f4'];
+                } else {
+                    progressChartInstance.data.datasets[0].backgroundColor = ['#4f46e5', '#f5f5f4'];
+                }
+                progressChartInstance.update();
+            }
+
+            const percent = Math.round((checkedCount / totalTasks) * 100);
+            const percentEl = document.getElementById('progress-percent');
+            percentEl.textContent = percent;
+            
+            if(percent === 100) {
+                percentEl.classList.remove('text-indigo-600');
+                percentEl.classList.add('text-emerald-500');
+                showToast('🎉 모든 단계를 다정한 마음으로 숙지하셨습니다. 고맙습니다!');
+            } else {
+                percentEl.classList.add('text-indigo-600');
+                percentEl.classList.remove('text-emerald-500');
+            }
+        }
+
+        function switchTab(phase) {
+            ['phase1', 'phase2', 'phase3'].forEach(p => {
+                document.getElementById('content-' + p).classList.add('hidden');
+                const btn = document.getElementById('btn-' + p);
+                btn.classList.remove('tab-active');
+                btn.classList.add('tab-inactive');
+            });
+
+            document.getElementById('content-' + phase).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + phase);
+            activeBtn.classList.remove('tab-inactive');
+            activeBtn.classList.add('tab-active');
+        }
+
+        const emergencyData = {
+            1: {
+                title: "조금 가볍게 다쳤을 때",
+                subtitle: "(현장 처치와 휴식으로 괜찮아질 수 있어요)",
+                color: "border-amber-400",
+                bg: "bg-amber-50",
+                steps: [
+                    "너무 당황하지 마시고, 가장 가까운 곳에 계신 인솔 선생님께 상황을 가볍게 말씀해 주세요.",
+                    "의무실(2층 식당 맞은편)에 방문하시어 구급상자 안에 든 연고나 밴드 등으로 가볍게 상처를 소독하고 감싸주세요.",
+                    "아이가 놀란 마음을 가라앉히고 조금 쉴 수 있도록 의무실 침상 등에서 따뜻하게 토닥여 다독여 주세요."
+                ]
+            },
+            2: {
+                title: "병원 진료가 필요할 때",
+                subtitle: "(자세한 정밀 진찰이 필요한 상태예요)",
+                color: "border-orange-500",
+                bg: "bg-orange-50",
+                steps: [
+                    "추가 부상을 막기 위해 필요한 응급처치를 의무실이나 안전한 장소에서 차분히 시행합니다.",
+                    "즉시 인솔 선생님께 환자의 상태를 알리고 함께 대처 방법을 의논해 주세요.",
+                    "학교가 보호자(부모님)께 연락하여 마음을 놓으실 수 있도록 안내 과정을 도와주세요.",
+                    "선생님의 안내에 따라 안전하고 신속하게 병원으로 학생이 이동하는 데 힘을 보태주세요."
+                ]
+            },
+            3: {
+                title: "위급하고 긴박한 상황일 때",
+                subtitle: "(한시라도 빠른 치료가 가장 먼저예요)",
+                color: "border-rose-600",
+                bg: "bg-rose-50",
+                steps: [
+                    "【최우선】 상황을 보는 즉시 119 구급대에 신고해 주시고, 큰 목소리로 주변 선생님들께 소리를 내어 소식을 알려주세요.",
+                    "구급대원이 현장에 도착하기 전까지 수화기 너머의 지도 지시에 맞춰 심폐소생술(CPR) 같은 필수 조치를 차분하게 시작해 주세요.",
+                    "선생님들이 환자 케어와 구급차 안내에 전념할 수 있도록 주변의 다른 아이들이 놀라지 않게 다정하게 감싸 안고 대열을 정돈해 주세요."
+                ]
+            }
+        };
+
+        function setEmergencyLevel(level) {
+            [1, 2, 3].forEach(l => {
+                const btn = document.getElementById('btn-em-' + l);
+                btn.className = btn.className.replace(/emerg-active-\d/g, '');
+                btn.classList.add('border-stone-200');
+            });
+
+            const activeBtn = document.getElementById('btn-em-' + level);
+            activeBtn.classList.remove('border-stone-200');
+            activeBtn.classList.add('emerg-active-' + level);
+
+            const display = document.getElementById('emergency-display');
+            const data = emergencyData[level];
+            
+            display.className = `bg-white rounded-xl shadow-md border-l-8 ${data.color} p-6 min-h-[200px] transition-all`;
+            
+            let stepsHtml = data.steps.map((step, index) => `
+                <li class="flex items-start gap-3 mb-4 last:mb-0">
+                    <span class="flex-shrink-0 w-8 h-8 rounded-full ${data.bg} text-stone-700 font-bold flex items-center justify-center border border-current opacity-70">${index + 1}</span>
+                    <span class="text-stone-700 mt-1 leading-relaxed">${step}</span>
+                </li>
+            `).join('');
+
+            display.innerHTML = `
+                <div class="w-full animate-[fadeIn_0.5s_ease-out]">
+                    <h3 class="text-2xl font-bold text-stone-800 mb-1 flex items-center gap-2">
+                        ${data.title}
+                    </h3>
+                    <p class="text-sm text-stone-500 mb-6">${data.subtitle}</p>
+                    <ul class="text-left w-full max-w-2xl">
+                        ${stepsHtml}
+                    </ul>
+                </div>
+            `;
+        }
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            
+            toast.classList.remove('hidden');
+            toast.classList.remove('toast-exit', 'toast-exit-active');
+            toast.classList.add('toast-enter');
+            
+            requestAnimationFrame(() => {
+                toast.classList.add('toast-enter-active');
+                toast.classList.remove('toast-enter');
+            });
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('toast-exit');
+                toast.classList.remove('toast-enter-active');
+                
+                requestAnimationFrame(() => {
+                    toast.classList.add('toast-exit-active');
+                    setTimeout(() => {
+                        toast.classList.add('hidden');
+                        toast.classList.remove('toast-exit', 'toast-exit-active');
+                    }, 300);
+                });
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
